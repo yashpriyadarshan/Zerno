@@ -2,7 +2,7 @@ package com.zerno.type;
 
 public enum RoleType {
 
-    USER,
+    CUSTOMER,
     ADMIN,
     SELLER
 }
