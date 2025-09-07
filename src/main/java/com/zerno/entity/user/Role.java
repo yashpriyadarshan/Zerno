@@ -1,17 +1,18 @@
-package com.zerno.entity;
+package com.zerno.entity.user;
 
 import com.zerno.type.RoleType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "roles")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Role {
 
     @Id
@@ -26,6 +27,6 @@ public class Role {
     private String description;
 
     @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
-    private Set<User> users;
-
+    @Builder.Default
+    private Set<User> users = new HashSet<>();
 }
